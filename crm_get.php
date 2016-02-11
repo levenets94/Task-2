@@ -16,11 +16,6 @@ function get_challenge(){
 
 }
 
-//echo getChallenge();
-//$json = json_decode(getChallenge());
-//echo '<br>';
-//var_dump($json->result->token);
-
 $challenge = get_challenge();
 
 function login(){
@@ -83,8 +78,6 @@ function describe(){
 
 }
 
-/*Function below returns an error(AUTH_REQUIRED) all the time. Sorry*/
-
 function query_operation(){
     global $login;
 
@@ -103,8 +96,6 @@ function query_operation(){
 
 }
 
-
-/*Function below returns an error(AUTH_REQUIRED) all the time. Sorry*/
 function retrieve(){
     global $login, $challenge;
     $json=json_decode($login);
@@ -120,32 +111,42 @@ function retrieve(){
         )
 
     )));
-    echo 'banana';
+
     return $result;
 
 }
 
-$some_value = describe();
-$some_json = json_decode($some_value);
-
-$list = list_type_operations();
-
-$list = json_decode($list);
 
 
-echo '<pre>';
 
-print_r($list);
-//print_r($some_json->result->fields);
-echo '</pre>';
+$query_json=json_decode(query_operation());
+$retrieve_json=json_decode(retrieve());
 
 
-echo '<br>';
+$array = array(
+    'challenge'=>json_decode($challenge),
+    'login'=>json_decode($login),
+    'list_type'=>json_decode(list_type_operations()),
+    'describe'=>json_decode(describe()),
+    'query'=>json_decode(query_operation()),
+    'retrieve'=>json_decode(retrieve())
 
-//var_dump($login);
 
-//var_dump(describe());
-var_dump(query_operation());
+);
+
+
+foreach($array as $key=>$value){
+
+    echo "<pre>";
+    echo strtoupper($key).':';
+    echo '<br>';
+    print_r($value);
+
+    echo "</pre>";
+}
+
+
+
 
 
 
