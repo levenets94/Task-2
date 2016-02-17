@@ -128,12 +128,12 @@ function retrieve(){
 
 
 $query_operations = array(
-    "Leads"=>str_replace(' ', '%20', "SELECT firstname, lastname, company, email FROM Leads;"),
-    "Contacts"=>str_replace(' ', '%20', "SELECT firstname, lastname, email FROM Contacts;"),
-    "Users"=>str_replace(' ', '%20', 'SELECT user_name, email1, first_name, last_name FROM Users;'),
-    "Accounts"=>str_replace(' ', '%20', 'SELECT accountname, email1, website, phone FROM Accounts;'),
-    "Tasks"=>str_replace(' ', '%20', "SELECT subject, date_start, time_start, due_date, taskstatus, taskpriority FROM Calendar;"),
-    "Opportunities"=>str_replace(' ', '%20', "SELECT potentialname, amount, closingdate, sales_stage FROM Potentials;"),
+    "Leads"=>str_replace(' ', '%20', "SELECT * FROM Leads;"),
+    "Contacts"=>str_replace(' ', '%20', "SELECT * FROM Contacts;"),
+    "Users"=>str_replace(' ', '%20', 'SELECT * FROM Users;'),
+    "Accounts"=>str_replace(' ', '%20', 'SELECT * FROM Accounts;'),
+    "Tasks"=>str_replace(' ', '%20', "SELECT * FROM Calendar;"),
+    "Opportunities"=>str_replace(' ', '%20', "SELECT * FROM Potentials;"),
 
 );
 
